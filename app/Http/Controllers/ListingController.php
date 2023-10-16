@@ -20,7 +20,7 @@ class ListingController extends Controller
      */
     public function index()
     {
-        $listings = Listing::latest()->get();
+        $listings = Listing::latest()->paginate(10);
         return view('listings.index', compact('listings'));
     }
 
