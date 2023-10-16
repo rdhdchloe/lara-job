@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+.icon-gray{
+    @apply w-5 h-5 text-gray-400
+}
+
+.list {
+    @apply text-sm leading-6 text-gray-500
+}
+
+.list-wrapper {
+    @apply mt-2 flex w-full flex-none gap-x-2 px-3
+}
+
+.flex-center {
+    @apply flex justify-between items-center
+}
+
+.page-heading {
+    @apply my-10 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center
+}
+
+.item-wrapper {
+    @apply px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0
+}
+.item-key {
+    @apply text-sm font-medium leading-6 text-gray-900
+}
+
+.item-value{
+    @apply mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0
+}
+
+.form-input {
+    @apply block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6
+}
+
+.form-label {
+    @apply block text-sm font-semibold leading-6 text-gray-900
+}
+}
