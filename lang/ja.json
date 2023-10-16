@@ -137,5 +137,8 @@
     "per page": "毎ページ",
     "results": "件",
     "to": "から",
-    "Showing": "表示中："
+    "Showing": "表示中：",
+    "Listings": "求人一覧",
+    "Listings.create":"求人を作成する",
+    "Listings.edit":"求人を編集する"
 }
