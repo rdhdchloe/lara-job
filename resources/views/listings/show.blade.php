@@ -32,7 +32,7 @@
                 </div>
                 <div class="item-wrapper">
                   <dt class="item-key">地域</dt>
-                  <dd class="item-value">{{ $listing->location }}</dd>
+                  <dd class="item-value">{{ __($listing->location) }}</dd>
                 </div>
                 <div class="item-wrapper">
                   <dt class="item-key">給与・賞与</dt>
@@ -51,15 +51,14 @@
 
     @if (Auth::user()->id == $listing->user->id )
     <div class="flex justify-center">
-        <form method='get' action="{{ route('listings.edit', [ 'listing' => $listing->id ]) }}">
-            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">編集</button>
+        <a href="{{ route('listings.edit', $listing) }}">編集</a>
+        <form action="{{ route('listings.destroy', ['listing' => $listing->id]) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger">Delete</button>
         </form>
-        {{-- <a href="{{ route('listings.edit', $listing) }}">編集</a> --}}
-        {{-- <form method="post" action="{{ route('listings.destroy', [ 'id' => $listing->id ]) }}" id="delete_{{ $listing->id }}">
-        @csrf
-            <a href="#" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg" data-id="{{ $board->id }}" onclick="deletePost(this)" >削除</a>
-        </form> --}}
+      
     </div>
-@endif
+    @endif
   </div>
 </x-app-layout>

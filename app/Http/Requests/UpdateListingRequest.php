@@ -11,7 +11,7 @@ class UpdateListingRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,6 +26,7 @@ class UpdateListingRequest extends FormRequest
             'position'=>'string',
             'salary'=>'string',
             'company'=>'string',
+            'url'=>'url',
             'description'=>'string',
             'location'=>'required|string'
         ];
