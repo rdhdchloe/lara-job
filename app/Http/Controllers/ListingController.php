@@ -45,7 +45,7 @@ class ListingController extends Controller
 
         $listing = Listing::create(array_merge($request->validated(), ['user_id' => $user->id]));
 
-        return redirect()->route('listings.show', $listing);
+        return redirect()->route('listings.show', $listing)->with('message', '求人を作成しました。');
     }
 
     /**
@@ -83,7 +83,7 @@ class ListingController extends Controller
 
         $listing->update(array_merge($request->validated(),['user_id'=>$user->id]));
 
-        return redirect()->route('listings.show', $listing);
+        return redirect()->route('listings.show', $listing)->with('message', '求人を更新しました。');
     }
 
     /**
@@ -94,6 +94,6 @@ class ListingController extends Controller
         $listing = Listing::find($id);
         $listing->delete();
 
-        return redirect()->route('listings.index');
+        return redirect()->route('listings.index')->with('message', '求人を削除しました。');
     }
 }
