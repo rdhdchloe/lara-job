@@ -25,4 +25,12 @@ class Listing extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        if($filters['search'] ?? false){
+            $query->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('description', 'like', '%' . request('search') . '%');
+        }
+    }
 }

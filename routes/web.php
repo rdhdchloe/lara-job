@@ -15,9 +15,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
+Route::get('/', [ListingController::class,'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

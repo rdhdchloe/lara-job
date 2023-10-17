@@ -29,7 +29,7 @@
                     <x-heroicon-o-map-pin/>
                 </dt>
                 <dd class="list">
-                    {{$listing->location}}
+                    {{ __($listing->location) }}
                 </dd>
             </div>
     </dl>

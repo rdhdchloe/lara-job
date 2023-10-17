@@ -20,7 +20,8 @@ class ListingController extends Controller
      */
     public function index()
     {
-        $listings = Listing::latest()->paginate(10);
+        // $listings = Listing::latest()->paginate(10);
+        $listings = Listing::latest()->filter(request()->only('search'))->paginate(10);
         return view('listings.index', compact('listings'));
     }
 
