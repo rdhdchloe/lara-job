@@ -24,7 +24,7 @@
                   
                 <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
                   <div>
-                    <h2 class="text-base font-semibold leading-7 text-gray-900">求人情報を入力する</h2>
+                    <h2 class="text-base font-semibold leading-7 text-gray-900">会社・求人情報</h2>
                   </div>
               
                   <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">

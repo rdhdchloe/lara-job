@@ -20,9 +20,11 @@
           <div class="border p-5 shadow rounded-md">
             {{-- <x-listing-tags :tags="$listing->tags"/> --}}
             <img src="{{asset('/images/no-image.png')}}" class="w-1/2 mx-auto" alt="">
-            <div class="px-4 sm:px-0 flex-center text-sm leading-6">
-              <p class="max-w-2xl font-semibold">{{ $listing->user->name }}</p>
-              <time datetime="{{ $listing->created_at->toDateString() }}" class="text-gray-500">{{ $listing->created_at->format('Y-m-d') }}</time>
+            <div class="px-4 sm:px-0 flex justify-end items-center text-sm leading-6 text-gray-500">
+              <x-heroicon-o-user />
+              <p class="max-w-2xl mr-2">{{ $listing->user->name }}</p>
+              <x-heroicon-o-calendar-days/>
+              <time datetime="{{ $listing->created_at->toDateString() }}">{{ $listing->created_at->format('Y-m-d') }}</time>
             </div>
             <div class="mt-6 border-t border-gray-100">
               <dl class="divide-y divide-gray-100">
@@ -44,16 +46,7 @@
                 </div>
               </dl>
             </div>
-            @if (Auth::user()->id == $listing->user->id )
-            <div class="flex justify-center rounded-md  text-center my-10">
-                <a href="{{ route('listings.edit', $listing) }}" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">編集</a>
-                <form action="{{ route('listings.destroy', ['listing' => $listing->id]) }}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="relative -ml-px inline-flex items-center rounded-r-md bg-white px-3 py-2 text-sm font-semibold text-red-500 ring-1 ring-inset ring-gray-300 hover:bg-red-50 focus:z-10">削除</button>
-                </form>
-            </div>
-            @endif
+            @include('listings.crud')
           </div>
         </div>
       </div>
