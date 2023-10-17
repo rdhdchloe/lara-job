@@ -91,15 +91,19 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+        @endauth
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
+        <div class="py-4 border-t border-gray-200">
+            @auth
+            <div class="pl-4">
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
+            @endauth
 
             <div class="mt-3 space-y-1">
+                @auth
                 <x-responsive-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
@@ -114,10 +118,10 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
+                @else
+                    @include('layouts.buttons')
+                @endauth
             </div>
         </div>
-        @else
-            @include('layouts.buttons')
-        @endauth
     </div>
 </nav>
