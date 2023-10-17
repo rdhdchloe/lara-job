@@ -45,21 +45,21 @@
                       <div class="sm:col-span-3">
                         <label for="company" class="form-label">会社名</label>
                         <div class="mt-1">
-                          <input type="text" name="company" id="company" autocomplete="company" value="{{ old('company') }}" class="form-input">
+                          <input type="text" name="company" id="company" autocomplete="company" value="{{ old('company') }}" class="form-input" placeholder="株式会社 〇〇">
                         </div>
                       </div>
                   
                       <div class="sm:col-span-3">
                         <label for="position" class="form-label">ポジション</label>
                         <div class="mt-1">
-                          <input type="text" name="position" id="position" autocomplete="position" value="{{ old('position') }}" class="form-input">
+                          <input type="text" name="position" id="position" autocomplete="position" value="{{ old('position') }}" class="form-input" placeholder="サーバーサイドエンジニ">
                         </div>
                       </div>
                   
                       <div class="sm:col-span-3">
                         <label for="salary" class="form-label">給与・賞与</label>
                         <div class="mt-1">
-                          <input type="text" name="salary" id="salary" autocomplete="salary" value="{{ old('salary') }}" class="form-input">
+                          <input type="text" name="salary" id="salary" autocomplete="salary" value="{{ old('salary') }}" class="form-input" placeholder="300万〜500万">
                         </div>
                       </div>
                   
@@ -80,7 +80,7 @@
                     </div>
                 
                     <div class="max-w-2xl space-y-10 md:col-span-2">
-                      <textarea id="description" name="description" rows="10" class="form-input">{{ old('description') }}</textarea>
+                      <textarea id="description" name="description" rows="10" class="form-input" placeholder="業務内容・メモを入力する">{{ old('description') }}</textarea>
                     </div>
                   </div>
                 </div>
