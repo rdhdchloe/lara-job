@@ -32,4 +32,5 @@ require __DIR__.'/auth.php';
 
 Route::resource('/listings', ListingController::class);
 
+Route::get('/tags/search', [TagController::class, 'search']);
 Route::get('/tags/{tag}', [TagController::class, 'show']);
