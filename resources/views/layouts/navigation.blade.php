@@ -20,7 +20,8 @@
                 @endauth
 
             </div>
-            @include('layouts.search')
+            {{-- @include('layouts.search') --}}
+            @livewire('search')
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
