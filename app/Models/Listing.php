@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Tag;
 
 class Listing extends Model
 {
@@ -33,5 +34,10 @@ class Listing extends Model
                 ->orWhere('description', 'like', '%' . $search . '%')
                 ->orWhere('position', 'like', '%' . $search . '%');
         });
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }
