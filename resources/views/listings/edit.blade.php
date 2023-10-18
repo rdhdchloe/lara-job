@@ -83,6 +83,15 @@
                   <div class="max-w-2xl space-y-10 md:col-span-2">
                     <textarea id="description" name="description" rows="10" class="form-input">{{ old('description', $listing->description) }}</textarea>
                   </div>
+
+                  <div class="mt-8">
+                    <label for="tags" class="form-label">タグ</label>
+                  </div>
+
+                    
+                  <div class="max-w-2xl space-y-10 md:col-span-2 mt-1 md:mt-8">
+                    <input id="tags" name="tags" rows="10" class="form-input" placeholder="[Enter]キーで区切って入力してください" value="{{ old('tags', $listing->tags->pluck('name')->implode(',')) }}">
+                  </div>
                 </div>
               </div>
           

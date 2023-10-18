@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileController;
 
@@ -30,3 +31,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::resource('/listings', ListingController::class);
+
+Route::get('/tags/{tag}', [TagController::class, 'show']);

@@ -18,7 +18,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white overflow-hidden shadow sm:rounded-lg">
           <div class="border p-5 shadow rounded-md">
-            {{-- <x-listing-tags :tags="$listing->tags"/> --}}
+            <x-listing-tags :tags="$listing->tags"/>
             <img src="{{asset('/images/no-image.png')}}" class="w-1/2 mx-auto" alt="">
             <div class="px-4 sm:px-0 flex justify-end items-center text-sm leading-6 text-gray-500">
               <x-heroicon-o-user />
