@@ -15,12 +15,12 @@
 
                 <div class="p-6 bg-white border-b border-gray-200">
                         <ul>
-                            @foreach (Auth::user()->listings as $listing)
+                            @foreach (Auth::user()->listings->sortByDesc('created_at') as $listing)
                             <ul role="list" class="divide-y divide-gray-100">
                                 <li class="flex-center p-3 border rounded-md shadow my-3">
                                   <div class="min-w-0">
                                     <div class="">
-                                      <a class="my-1 rounded-md whitespace-nowrap mt-0.5 px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset text-green-700 bg-green-50 ring-green-600/20">Complete</a>
+                                      <x-listing-tags :tags="$listing->tags" />
                                       <h3 class="text-sm font-semibold leading-6 text-gray-900">
                                         <a href="/listings/{{$listing->id}}">
                                         {{$listing->title}}
@@ -42,7 +42,7 @@
                             @endforeach
                         </ul>
                     @else
-                        <p>投稿が見つかりませんでした。</p>
+                        <p class="p-6">投稿が見つかりませんでした。</p>
                     @endif
                 </div>
             </div>

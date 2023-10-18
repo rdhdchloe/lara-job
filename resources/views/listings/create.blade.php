@@ -78,11 +78,22 @@
                     <div>
                       <h2 class="text-base font-semibold leading-7 text-gray-900">業務内容・メモ</h2>
                     </div>
-                
+
+                    
                     <div class="max-w-2xl space-y-10 md:col-span-2">
                       <textarea id="description" name="description" rows="10" class="form-input" placeholder="業務内容・メモを入力する">{{ old('description') }}</textarea>
                     </div>
+
+                    <div class="mt-8">
+                      <label for="tags" class="form-label">タグ</label>
+                    </div>
+  
+                      
+                    <div class="max-w-2xl space-y-10 md:col-span-2 mt-1 md:mt-8">
+                      <input id="tags" name="tags" rows="10" class="form-input" placeholder="[Enter]キーで区切って入力してください" value="{{ old('tags') }}">
+                    </div>
                   </div>
+
                 </div>
             
                 <div class="mt-6 flex items-center justify-end gap-x-6">

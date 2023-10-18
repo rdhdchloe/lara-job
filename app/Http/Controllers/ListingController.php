@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreListingRequest;
 use App\Http\Requests\UpdateListingRequest;
-use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -44,7 +45,16 @@ class ListingController extends Controller
             return redirect()->route('login')->with('error_message', 'ログインしてください');
         }
 
+        $tagNames = explode(",", $request->input('tags'));
+        $tagIds = [];
+        foreach ($tagNames as $tagName) {
+            $tagName = trim($tagName);
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $tagIds[] = $tag->id;
+        }
+    
         $listing = Listing::create(array_merge($request->validated(), ['user_id' => $user->id]));
+        $listing->tags()->sync($tagIds);
 
         return redirect()->route('listings.show', $listing)->with('message', '求人を作成しました。');
     }
@@ -82,7 +92,16 @@ class ListingController extends Controller
         $this->authorize('update', $listing);
         $user = Auth::user();
 
+        $tagNames = explode(',', $request->input('tags'));
+        $tagIds = [];
+        foreach ($tagNames as $tagName) {
+            $tagName = trim($tagName);
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $tagIds[] = $tag->id;
+        }
+        
         $listing->update(array_merge($request->validated(),['user_id'=>$user->id]));
+        $listing->tags()->sync($tagIds);
 
         return redirect()->route('listings.show', $listing)->with('message', '求人を更新しました。');
     }

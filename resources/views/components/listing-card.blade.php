@@ -2,9 +2,11 @@
 
 <div class="rounded-md shadow ring-1 ring-gray-500/5 h-full">
     <dl class="break-all">
+        <div class="p-3">
+        <x-listing-tags :tags="$listing->tags"/>
+        </div>
         <img src="{{asset('/images/no-image.png')}}" class="w-1/2 mx-auto object-cover" alt="">
             <div class="flex-auto px-3 pt-3">
-                {{-- <x-listing-tags :tags="$listing->tags"/> --}}
                 <h2 class="mt-1 text-base font-semibold leading-6 text-gray-900">
                     {{ $listing->title }}
                 </h2>
