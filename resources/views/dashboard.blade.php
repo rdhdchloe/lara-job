@@ -15,7 +15,7 @@
 
                 <div class="p-6 bg-white border-b border-gray-200">
                         <ul>
-                            @foreach (Auth::user()->listings->sortByDesc('created_at') as $listing)
+                            @foreach (Auth::user()->listings()->with('tags')->latest('created_at')->get() as $listing)
                             <ul role="list" class="divide-y divide-gray-100">
                                 <li class="flex-center p-3 border rounded-md shadow my-3">
                                   <div class="min-w-0">

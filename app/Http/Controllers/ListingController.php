@@ -22,7 +22,7 @@ class ListingController extends Controller
     public function index()
     {
         // $listings = Listing::latest()->paginate(10);
-        $listings = Listing::latest()->filter(request()->only('search'))->paginate(10);
+        $listings = Listing::latest()->with(['user', 'tags'])->filter(request()->only('search'))->paginate(10);
         return view('listings.index', compact('listings'));
     }
 
@@ -45,14 +45,9 @@ class ListingController extends Controller
             return redirect()->route('login')->with('error_message', 'ログインしてください');
         }
 
-        $tagNames = explode(",", $request->input('tags'));
-        $tagIds = [];
-        foreach ($tagNames as $tagName) {
-            $tagName = trim($tagName);
-            $tag = Tag::firstOrCreate(['name' => $tagName]);
-            $tagIds[] = $tag->id;
-        }
-    
+        $tagNames = explode(',', $request->input('tags'));
+        $tagIds = Tag::getTagIds($tagNames);
+
         $listing = Listing::create(array_merge($request->validated(), ['user_id' => $user->id]));
         $listing->tags()->sync($tagIds);
 
@@ -64,7 +59,7 @@ class ListingController extends Controller
      */
     public function show(string $id)
     {
-        $listing = Listing::find($id);
+        $listing = Listing::with('tags')->find($id);
         return view('listings.show', compact('listing'));
     }
 
@@ -93,12 +88,7 @@ class ListingController extends Controller
         $user = Auth::user();
 
         $tagNames = explode(',', $request->input('tags'));
-        $tagIds = [];
-        foreach ($tagNames as $tagName) {
-            $tagName = trim($tagName);
-            $tag = Tag::firstOrCreate(['name' => $tagName]);
-            $tagIds[] = $tag->id;
-        }
+        $tagIds = Tag::getTagIds($tagNames);
         
         $listing->update(array_merge($request->validated(),['user_id'=>$user->id]));
         $listing->tags()->sync($tagIds);
@@ -111,7 +101,7 @@ class ListingController extends Controller
      */
     public function destroy(string $id)
     {
-        $listing = Listing::find($id);
+        $listing = Listing::findOrFail($id);
         $listing->delete();
 
         return redirect()->route('listings.index')->with('message', '求人を削除しました。');
