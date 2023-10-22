@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="求人作成">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Listings.create') }}

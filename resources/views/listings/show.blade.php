@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :title="$listing->title">
   <x-slot name="header">
     <h2 class="inline font-semibold text-xl text-gray-800 leading-tight">
       {{ $listing->title }}
