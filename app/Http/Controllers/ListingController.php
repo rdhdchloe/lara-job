@@ -23,7 +23,8 @@ class ListingController extends Controller
     {
         // $listings = Listing::latest()->paginate(10);
         $listings = Listing::latest()->with(['user', 'tags'])->filter(request()->only('search'))->paginate(10);
-        return view('listings.index', compact('listings'));
+        $search = request('search');
+        return view('listings.index', compact('listings', 'search'));
     }
 
     /**
