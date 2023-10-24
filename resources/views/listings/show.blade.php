@@ -1,9 +1,10 @@
 <x-app-layout :title="$listing->title">
   <x-slot name="header">
+    <x-listing-tags :tags="$listing->tags"/>
     <h2 class="inline font-semibold text-xl text-gray-800 leading-tight">
       {{ $listing->title }}
     </h2>
-    <div class="mt-2 flex-center flex-wrap">
+    <div class="mt-2 flex flex-wrap">
       <div class="mr-5 flex items-center">
         <x-heroicon-o-briefcase />
         <span class="ml-1 max-w-2xl text-gray-500 text-sm">{{ $listing->company }}</span>
@@ -18,7 +19,6 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white overflow-hidden shadow sm:rounded-lg">
           <div class="border p-5 shadow rounded-md">
-            <x-listing-tags :tags="$listing->tags"/>
             <div class="px-4 sm:px-0 flex justify-end items-center text-sm leading-6 text-gray-500">
               <x-heroicon-o-user />
               <p class="max-w-2xl mr-2">{{ $listing->user->name }}</p>
