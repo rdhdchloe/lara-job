@@ -2,7 +2,9 @@
 
 <div class="rounded-md shadow ring-1 ring-gray-500/5 h-full">
     <dl class="break-all pt-3">
-        <x-listing-tags :tags="$listing->tags"/>
+        <div class="pl-3">
+            <x-listing-tags :tags="$listing->tags"/>
+        </div>
         <div class="flex-auto px-3">
             <h2 class="mt-1 text-base font-semibold leading-6 text-gray-900">
                 {{ $listing->title }}
