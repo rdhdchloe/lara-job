@@ -1,66 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## サービス概要
+本サービスはプログラミングの学習者に向けて求人情報を記録し共有するサービスです。<br>
 
-## About Laravel
+## サービス URL
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+https://lara-job.com
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 主な機能
 
-## Learning Laravel
+### ログイン・新規登録
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+| ログイン | 新規登録 |
+| ---- | ---- |
+| ![Image from Gyazo](https://i.gyazo.com/6d1773dbb04e51103f25e1f11b4bbbc3.png)|[![Image from Gyazo](https://i.gyazo.com/ee1f15ac0ebd736cd5de7fa5ba19708c.png)](https://gyazo.com/ee1f15ac0ebd736cd5de7fa5ba19708c) | 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ユーザー機能
 
-## Laravel Sponsors
+| 投稿一覧 | 投稿 | アカウント管理 |
+| ---- | ---- |  ---- | 
+| [![Image from Gyazo](https://i.gyazo.com/03dc6a6f52474f26769905e7e7ec9814.gif)](https://gyazo.com/03dc6a6f52474f26769905e7e7ec9814) | [![Image from Gyazo](https://i.gyazo.com/c1d56022cb9cc38e0e3b96d11adb70f5.gif)](https://gyazo.com/c1d56022cb9cc38e0e3b96d11adb70f5)　| [![Image from Gyazo](https://i.gyazo.com/cdd0ea6cec1253bff311bb63dff68ccc.gif)](https://gyazo.com/cdd0ea6cec1253bff311bb63dff68ccc) |
+| 投稿した求人一覧画面 | 求人の投稿画面 | アカウントの編集、更新画面 |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+---
 
-### Premium Partners
+## UXの向上で工夫したところ
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+| 投稿一覧の表示を非同期でソートする | Tagライブラリーの導入で手入力する手間を減らす | リアルタイムで検索結果を表示される |
+| ---- | ---- | ---- |
+| [![Image from Gyazo](https://i.gyazo.com/4c58f97c31e05a0538c4eeaf069fc99d.gif)](https://gyazo.com/4c58f97c31e05a0538c4eeaf069fc99d) | [![Image from Gyazo](https://i.gyazo.com/925c40e02dfaf6be3e70ad79918be225.gif)](https://gyazo.com/925c40e02dfaf6be3e70ad79918be225)　| [![Image from Gyazo](https://i.gyazo.com/90d04b82e6c4cc42f3a1ecc13633cfe8.gif)](https://gyazo.com/90d04b82e6c4cc42f3a1ecc13633cfe8) |
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 使用技術
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**フロントエンド**：
+* TailwindCSS
+* Laravel Blade
+* Heroicon
+* Livewire
+* Tagify
 
-## Security Vulnerabilities
+**バックエンド**：
+* PHP 8.1.24
+* Laravel 10.28.0
+* Laravel Breeze
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**データベース**：
+* Mysql 8.0
 
-## License
+**インフラ**：
+* AWS EC2
+* AWS Route 53
+* Nginx
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**API**：
+* Yahoo Job API
+
+---
+
+## 想定されるユーザー層
+未経験からエンジニア転職している方<br>
+エンジニアの学習をされている方<br>
+求人情報をまとめて管理したい方<br>
+
+---
+
+## ユーザーの課題
+似たような求人が多くてうまく絞りきれない<br>
+掲載された情報量が多くて必要な情報だけを参考したい<br>
+複数の求人媒体を使うとうまく情報整理できない
+
+---
+
+## Webアプリを作るきっかけ
+
+プログラミングスクールを卒業後、就活フェーズに入り、エンジニア業界のリサーチや求人の情報収集に効率が悪いと感じました。<br>
+効率よく自分に必要な求人情報収をまとめる方法があったらと思いました。
+
+---
+## サービスの目的・ゴール
+求人情報をメモすることで自分に合う求人を効率よくまとめること。
+
+---
+## 実装している機能
+
+* Laravel Breezeを用いたユーザー認証
+* 求人CRUD
+* 検索・検索プレビュー
+* タグ・タグでの絞り込み
+* 投稿一覧
+* アカウント管理
+* レスポンシブ対応
+
+
+
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/8a08295928d48d56d45e011691d78384.png)](https://gyazo.com/8a08295928d48d56d45e011691d78384)
