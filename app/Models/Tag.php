@@ -18,7 +18,7 @@ class Tag extends Model
     {
         $tagIds = [];
         foreach ($tagNames as $tagName) {
-            $tagName = trim($tagName);
+            $tagName = trim(strtolower($tagName));
             $tag = self::firstOrCreate(['name' => $tagName]);
             $tagIds[] = $tag->id;
         }
