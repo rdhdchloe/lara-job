@@ -60,7 +60,7 @@
                     <div class="sm:col-span-3">
                       <label for="salary" class="form-label">給与・賞与</label>
                       <div class="mt-1">
-                        <input type="text" name="salary" id="salary" autocomplete="salary" value="{{ old('salary', $listing->title) }}" class="form-input">
+                        <input type="text" name="salary" id="salary" autocomplete="salary" value="{{ old('salary', $listing->salary) }}" class="form-input">
                       </div>
                     </div>
                 
