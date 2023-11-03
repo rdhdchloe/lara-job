@@ -1,7 +1,7 @@
 <x-app-layout :title="$listing->title">
   <x-slot name="header">
     <x-listing-tags :tags="$listing->tags"/>
-    <h2 class="inline font-semibold text-xl text-gray-800 leading-tight">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight mt-3">
       {{ $listing->title }}
     </h2>
     <div class="mt-2 flex flex-wrap">
@@ -12,7 +12,7 @@
       <div class="flex items-start mt-3 sm:mt-0">
         <x-heroicon-o-link />
         <a href="{{$listing->url}}" target="_blank" class="ml-1 list hover:underline">{{$listing->url}}</a>
-      </div>  
+      </div>   
     </div>
   </x-slot>
   <div class="py-12">
@@ -23,7 +23,8 @@
               <x-heroicon-o-user />
               <p class="max-w-2xl mr-2">{{ $listing->user->name }}</p>
               <x-heroicon-o-calendar-days/>
-              <time datetime="{{ $listing->created_at->toDateString() }}">{{ $listing->created_at->format('Y-m-d') }}</time>
+              <time class="mr-2" datetime="{{ $listing->created_at->toDateString() }}">{{ $listing->created_at->format('Y-m-d') }}</time>
+              <x-listing-view :listing="$listing" />
             </div>
             <div class="mt-6 border-t border-gray-100">
               <dl class="divide-y divide-gray-100">

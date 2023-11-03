@@ -2,8 +2,9 @@
 
 <div class="rounded-md shadow ring-1 ring-gray-500/5 h-full">
     <dl class="break-all pt-3">
-        <div class="pl-3">
+        <div class="pl-3 flex-center">
             <x-listing-tags :tags="$listing->tags"/>
+            <time class="list pr-3" datetime="{{ $listing->created_at->toDateString() }}">{{ $listing->created_at->format('Y-m-d') }}</time>
         </div>
         <div class="flex-auto px-3">
             <h2 class="mt-1 text-base font-semibold leading-6 text-gray-900">
@@ -36,8 +37,6 @@
     </dl>
     <div class="mt-3 border-t border-gray-900/5 p-3 flex-center">
         <a href="/listings/{{ $listing->id }}" class="text-sm font-semibold leading-6 text-gray-900">求人を見る <span aria-hidden="true">&rarr;</span></a>
-        <dd class="list">
-            <time datetime="{{ $listing->created_at->toDateString() }}">{{ $listing->created_at->format('Y-m-d') }}</time>
-        </dd>
+        <x-listing-view :listing="$listing" />
     </div>
 </div>
