@@ -14,16 +14,31 @@ class ListingList extends Component
 
     #[Url()]
     public $sort = 'desc';
+    
+    #[Url()]
+    public $popular = false;
 
     public function sortListing($sort){
         $this->sort = ($sort === 'desc') ? 'desc' : 'asc';
     }
 
+    public function togglePopular()
+    {
+        $this->popular = !$this->popular;
+    }
 
     #[Computed()]
     public function listings()
     {
-        return Listing::orderBy('created_at', $this->sort)->with(['user', 'tags'])->filter(request()->only('search'))->paginate(10);
+        $query = Listing::orderBy('created_at', $this->sort)->with(['user', 'tags'])
+            ->filter(request()->only('search'));
+    
+        if ($this->popular) {
+            $query->withCount('views')
+                  ->orderBy("views_count", 'desc');
+        }
+    
+        return $query->paginate(10);
     }
 
     public function render()
