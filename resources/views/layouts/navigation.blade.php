@@ -30,7 +30,7 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div class="flex-center">
-                                <img src="{{ isset(Auth::user()->image) ? asset('storage/' . Auth::user()->image) : asset('images/no-image.png') }}" alt="" class="h-8 w-8 mr-2 rounded-full object-cover">
+                                <img src="{{ isset(Auth::user()->image) ? Auth::user()->image : asset('images/no-image.png') }}" alt="" class="h-8 w-8 mr-2 rounded-full object-cover">
                                 {{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
@@ -100,7 +100,7 @@
         <div class="py-4 border-t border-gray-200">
             @auth
             <div class="pl-4 flex items-center">
-                <img src="{{ isset(Auth::user()->image) ? asset('storage/' . Auth::user()->image) : asset('images/no-image.png') }}" alt="" class="h-8 w-8 mr-2 rounded-full object-cover">
+                <img src="{{ isset(Auth::user()->image) ? Auth::user()->image : asset('images/no-image.png') }}" alt="" class="h-8 w-8 mr-2 rounded-full object-cover">
                 <div>
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>

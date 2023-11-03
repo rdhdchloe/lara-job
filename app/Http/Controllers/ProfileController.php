@@ -34,15 +34,20 @@ class ProfileController extends Controller
         }
 
         if($currentImage = $request->user()->image){
-            Storage::disk('public')->delete($currentImage);
+            // Storage::disk('public')->delete($currentImage);
+            Storage::disk('s3')->delete($currentImage);
         }
 
         $path = null;
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('uploads', 'public');
-            $request->user()->image = $path;
+            // $path = $request->file('image')->store('uploads', 'public');
+            // $path = $request->file('image')->store('uploads', 's3');
+            // $request->user()->image = $path;
+            $image = $request->file('image');
+            $path = Storage::disk('s3')->putFile('uploads', $image, 'public');
         }
 
+        $request->user()->image = Storage::disk('s3')->url($path);
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
