@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Listing;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ListingView extends Model
 {
@@ -15,4 +16,9 @@ class ListingView extends Model
         'listing_id',
         'user_id'
     ];
+
+    public function listing()
+    {
+        return $this->belongsTo(Listing::class);
+    }
 }

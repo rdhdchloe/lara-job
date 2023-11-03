@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Tag;
 use App\Models\User;
+use App\Models\ListingView;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\Tag;
 
 class Listing extends Model
 {
@@ -39,5 +40,10 @@ class Listing extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function views()
+    {
+        return $this->hasMany(ListingView::class);
     }
 }
