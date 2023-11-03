@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\Listing;
+use App\Models\ListingView;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreListingRequest;
@@ -58,9 +59,19 @@ class ListingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id, Request $request)
     {
         $listing = Listing::with('tags')->find($id);
+
+        $user = $request->user();
+        
+        ListingView::create([
+            'ip_address' => $request->ip(),
+            'user_agent' => $request->userAgent(),
+            'listing_id' => $id,
+            'user_id' => $user?->id
+        ]);
+
         return view('listings.show', compact('listing'));
     }
 
