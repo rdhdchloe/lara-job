@@ -11,7 +11,7 @@
       </div>
       <div class="flex items-start mt-3 sm:mt-0">
         <x-heroicon-o-link />
-        <a href="{{$listing->url}}" target="_blank" class="ml-1 list hover:underline">{{$listing->url}}</a>
+        <a href="{{$listing->url}}" target="_blank" class="ml-1 list hover:underline break-all">{{$listing->url}}</a>
       </div>   
     </div>
   </x-slot>

@@ -2,7 +2,7 @@
 
 <div class="rounded-md shadow ring-1 ring-gray-500/5 h-full">
     <dl class="break-all pt-3">
-        <div class="pl-3 flex-center">
+        <div class="pl-3 flex-center flex-wrap">
             <x-listing-tags :tags="$listing->tags"/>
             <time class="list pr-3" datetime="{{ $listing->created_at->toDateString() }}">{{ $listing->created_at->format('Y-m-d') }}</time>
         </div>
