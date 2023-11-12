@@ -1,6 +1,7 @@
 <div x-data="imagePreview()">
+    <img src="{{ isset(Auth::user()->image) ? Auth::user()->image : asset('images/no-image.png') }}" alt="" class="w-10 h-10 my-3 rounded-md object-cover" id="preview">
     <input @change="showPreview(event)" type="file" id="image" name="image" class="mt-1">
-    <img src="{{ isset(Auth::user()->image) ? Auth::user()->image : asset('images/no-image.png') }}" alt="" class="w-9 h-9 mt-3 rounded-md object-cover" id="preview">
+    {{-- <img src="{{ isset(Auth::user()->image) ? asset('uploads/' . Auth::user()->image) : asset('images/no-image.png') }}" alt="" class="w-9 h-9 mt-3 rounded-md object-cover" id="preview"> --}}
 
     <script>
         function imagePreview(){

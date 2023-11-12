@@ -13,9 +13,22 @@
         @csrf
     </form>
 
+    <div class="my-5">
+        <x-input-label for="image" :value="__('Image')" />
+        <form method="POST" action="{{ route('profile.avatar.ai') }}" enctype="multipart/form-data">
+            @csrf
+            <button type="submit" class="rounded-md bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">アバターを生成する</button>
+        </form>
+    </div>
+
     <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
+
+        <div>
+            <x-user-image id="image" name="image" type="image" />
+            <x-input-error class="mt-2" :messages="$errors->get('image')" />
+        </div>
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -45,12 +58,6 @@
                     @endif
                 </div>
             @endif
-        </div>
-
-        <div>
-            <x-input-label for="image" :value="__('Image')" />
-            <x-user-image id="image" name="image" type="image" />
-            <x-input-error class="mt-2" :messages="$errors->get('image')" />
         </div>
 
         <div class="flex items-center gap-4">
