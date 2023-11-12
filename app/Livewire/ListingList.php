@@ -34,7 +34,7 @@ class ListingList extends Component
             ->filter(request()->only('search'));
     
         if ($this->popular) {
-            $query->withCount('views')
+            $query->withCount('views as views_count')
                   ->orderBy("views_count", 'desc');
         }
     
