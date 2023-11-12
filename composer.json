@@ -15,12 +15,12 @@
         "laravel/tinker": "^2.8",
         "league/flysystem-aws-s3-v3": "^3.0",
         "livewire/livewire": "^3.0",
-        "openai-php/laravel": "^0.7.5"
+        "openai-php/laravel": "^0.7.5",
+        "fakerphp/faker": "^1.9.1"
     },
     "require-dev": {
         "askdkc/breezejp": "^1.7",
         "barryvdh/laravel-debugbar": "^3.9",
-        "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.25",
         "mockery/mockery": "^1.4.4",
