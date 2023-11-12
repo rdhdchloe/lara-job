@@ -15,9 +15,5 @@ php artisan route:cache
 echo "Running migrations..."
 php artisan migrate --force
 
-echo "Seeding database..."
-php artisan db:seed
-
-echo "Building assets with Vite..."
-npm install --prefix /var/www/html
-npm run production --prefix /var/www/html
+# echo "Seeding database..."
+# php artisan db:seed
