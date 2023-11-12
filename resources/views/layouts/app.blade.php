@@ -40,5 +40,6 @@
                 {{ $slot }}
             </main>
         </div>
+        @livewireAssets
     </body>
 </html>
