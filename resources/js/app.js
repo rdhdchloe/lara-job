@@ -2,7 +2,7 @@ import './bootstrap';
 
 import './tagify';
 
-import { Livewire } from '../../vendor/livewire/livewire/dist/livewire.esm';
+import Livewire from 'livewire';
 
 import Alpine from 'alpinejs';
 
